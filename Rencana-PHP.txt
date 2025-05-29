@@ -2,3 +2,4 @@
   - Menguasai PHP
 - Framework Laravel
   - Menguasai Laravel
+- Setelah menguasai keduannya,Rencananya bisa membuat sebuah website portofolio
