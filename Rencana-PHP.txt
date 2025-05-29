@@ -1,2 +1,4 @@
 - Definisi PHP
+  - Menguasai PHP
 - Framework Laravel
+  - Menguasai Laravel
