@@ -2,3 +2,4 @@ Project 100 Hari
 - Saya ingin Konsisten belajar selama 100 hari
 - ingin menguasai Bahasa PHP
 - Ingin menguasai Java script
+- Setelah menguasai Php dan Js, Rencanannya ingin membuat sebuah Website Portofolio
