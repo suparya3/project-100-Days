@@ -34,6 +34,7 @@ $mahasiswa = [
         <li>Prodi :<?= $mhs[3]; ?></li>
     </ul>
     <?php endforeach; ?>
+    <h1>Penutup</h1>
     
 </body>
 </html>
