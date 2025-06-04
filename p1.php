@@ -50,4 +50,5 @@
 //&&, ||,!
 // $x = 51;
 // var_dump($x < 100 && $x %2 == 0); 
+// biar streak github nyala
 ?>
