@@ -14,11 +14,9 @@ if( isset($_POST["submit"]) ) {
         echo "
             <script>
                 alert('Data gagal ditambahkan!');
-                
             </script>
         ";
     }
- 
 }
 ?>
 <!DOCTYPE html>
@@ -27,48 +25,48 @@ if( isset($_POST["submit"]) ) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data capster</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Tambah Data Capster</h1>
-    <form action="" method="post">
-        <ul>
-            <li>
-                <label for="nama_capster">Nama Capster</label>
-                <input type="text" name="nama_capster" id="nama_capster"required>
-                
-            </li>
-            <li>
-                <label for="kode_capster">Kode Capster</label>
-                <input type="text" name="kode_capster" id="kode_capster" required>
-                
-            </li>
-            <li>
-                <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" id="alamat" required>
-                
-            </li>
-            <li>
-                <label for="no_hp">No Hp</label>
-                <input type="text" name="no_hp" id="no_hp" required>
-              
-            </li>
-            <li>
-                <label for="foto">Foto</label>
-                <input type="file" name="foto" id="foto">
-                
-            </li>
-            <li>
-                <label for="jenis_kelamin">Pilih Jenis Kelamin</label>
-                <select name="jenis_kelamin" id="jenis_kelamin" >
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select>
-            </li>
-            <li>
-                <button type="submit" name="submit">Tambah Data!</button>
-            </li>
-        </ul>
-    </form>
-    
+    <div class="container">
+        <h1>Tambah Data Capster</h1>
+        <form action="" method="post">
+            <ul>
+                <li>
+                    <label for="nama_capster">Nama Capster</label>
+                    <input type="text" name="nama_capster" id="nama_capster" required>
+                </li>
+                <li>
+                    <label for="kode_capster">Kode Capster</label>
+                    <input type="text" name="kode_capster" id="kode_capster" required>
+                </li>
+                <li>
+                    <label for="alamat">Alamat</label>
+                    <input type="text" name="alamat" id="alamat" required>
+                </li>
+                <li>
+                    <label for="no_hp">No HP</label>
+                    <input type="text" name="no_hp" id="no_hp" required>
+                </li>
+                <li>
+                    <label for="foto">Foto (nama file)</label>
+                    <input type="text" name="foto" id="foto" placeholder="contoh: foto1.jpg">
+                </li>
+                <li>
+                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" id="jenis_kelamin" required>
+                        <option value="">--Pilih--</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </li>
+                <li>
+                    <button type="submit" name="submit" class="btn">Tambah Data</button>
+                </li>
+            </ul>
+        </form>
+        <br>
+        <a href="index.php" class="btn">Kembali</a>
+    </div>
 </body>
 </html>
