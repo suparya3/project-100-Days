@@ -11,10 +11,10 @@ $result = mysqli_query($db, "SELECT * FROM capsters");
 // mysqli_fetch_array() // mengembalikan array numerik dan associative tapi data yang disajikan double
 // mysqli_fetch_object()
 
-while( $cps = mysqli_fetch_array($result) ) {
-var_dump($cps["nama_capster"]); 
+// while( $cps = mysqli_fetch_array($result) ) {
+// var_dump($cps); 
 
-}
+// }
 ?>
 
 
@@ -40,18 +40,22 @@ var_dump($cps["nama_capster"]);
             </tr>
         </thead>
         <tbody>
+            <?php $i=1;?>
+            <?php while( $row = mysqli_fetch_assoc($result) ) : ?>
             <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?= $i ?></td>
+                <td><?= $row["nama_capster"];?></td>
+                <td><?= $row["kode_capster"];?></td>
+                <td><?= $row["alamat"];?></td>
+                <td><?= $row["no_hp"]?></td>
+                <td><img src="foto/<?= $row["foto"];?>" height="100px" width="100px"></td>
                 <td>
                     <a href="">Edit</a>|
                     <a href="">Hapus</a>
                 </td>
             </tr>
+            <?php $i++; ?>
+            <?php endwhile; ?>
         </tbody>
     </table>
     
