@@ -49,7 +49,7 @@ $capsters = query("SELECT * FROM capsters");
                     </td>
                     <td><?= htmlspecialchars($row["jenis_kelamin"]);?></td>
                     <td>
-                        <a href="" class="btn">Edit</a>
+                        <a href="edit.php?id=<?= $row["id"]; ?>" class="btn">Edit</a>
                         <a href="hapus.php?id=<?= $row["id"]; ?>" class="btn" onclick="return confirm('Yakin ingin menghapus data ini ?');">Hapus</a>
                     </td>
                 </tr>
