@@ -20,6 +20,8 @@ $capsters = query("SELECT * FROM capsters");
         <ul>
             <li><a href="index.php" class="<?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>">Dashboard</a></li>
             <li><a href="tambah.php" class="<?= basename($_SERVER['PHP_SELF']) == 'tambah.php' ? 'active' : '' ?>">Tambah Data</a></li>
+            <!-- tambahan -->
+            <li><a href="tambah.php" class="<?= basename($_SERVER['PHP_SELF']) == 'tambah.php' ? 'active' : '' ?>">Tambah Data</a></li>
         </ul>
     </div>
     <div class="container">
