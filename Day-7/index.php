@@ -1,10 +1,15 @@
 <?php
 // koneksi ke database
 require 'koneksi.php';
+
 $capsters = query("SELECT * FROM capsters");
+
+// <!-- tombol search sudah ditekan -->
+if ( isset($_POST["search"]) ) {
+    $capsters = search($_POST["keyword"]);
+}
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,14 +25,16 @@ $capsters = query("SELECT * FROM capsters");
         <ul>
             <li><a href="index.php" class="<?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>">Dashboard</a></li>
             <li><a href="tambah.php" class="<?= basename($_SERVER['PHP_SELF']) == 'tambah.php' ? 'active' : '' ?>">Tambah Data</a></li>
-            <!-- tambahan -->
-            <li><a href="tambah.php" class="<?= basename($_SERVER['PHP_SELF']) == 'tambah.php' ? 'active' : '' ?>">Tambah Data</a></li>
         </ul>
     </div>
     <div class="container">
         <h1>Data capster</h1>
         <a href="tambah.php" class="btn">Tambah Data Capster</a>
         <br><br>
+        <form action="" method="post" class="search-form"> 
+            <input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian" autocomplete="off" class="input-search">
+            <button type="submit" name="search">Cari </button>
+        </form>
         <table class="table-capster">
             <thead>
                 <tr>

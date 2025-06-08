@@ -60,5 +60,15 @@ function edit($data){
 }
 
 
+function search($keyword) {
+    $query = "SELECT * FROM capsters
+            WHERE
+            nama_capster LIKE '%$keyword%' OR
+            kode_capster LIKE '%$keyword%' 
+            ";
+    return query($query);
+}
+
+
 
 ?>
