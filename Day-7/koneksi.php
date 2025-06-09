@@ -18,8 +18,12 @@ function tambah($data) {
     $kode_capster = htmlspecialchars($data["kode_capster"]);
     $alamat = htmlspecialchars($data["alamat"]);
     $no_hp = htmlspecialchars($data["no_hp"]);
-    $foto = htmlspecialchars($data["foto"]);
     $jenis_kelamin = $data["jenis_kelamin"];
+    // upload gambar
+    $foto = upload();
+    if( !$foto) {
+        return false;
+    }
 
     $query = "INSERT INTO capsters
         VALUES
@@ -27,6 +31,49 @@ function tambah($data) {
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
+}
+function upload() {
+    $namafile = $_FILES['foto']['name'];
+    $ukuranfile = $_FILES['foto']['size'];
+    $error = $_FILES['foto']['error'];
+    $tmpName = $_FILES['foto']['tmp_name'];
+
+    // cek apakah tidak ada gambar yang diupload
+    if($error === 4) {
+        echo "<script>
+                alert('pilih gambar terlebih dahulu!');
+                </script>";
+                return false;
+    }
+    // cek apakah yang di upload adalah gambar
+    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiGambar = explode('.', $namafile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+    if( !in_array($ekstensiGambar, $ekstensiGambarValid) ) {
+           echo "<script>
+                alert('yang anda upload bukan gambar!');
+                </script>";
+                return false;
+    }
+    // cek jika ukuran terlalu besar
+    if( $ukuranfile > 1000000 ) {
+        echo "<script>
+                alert('ukuran gambar terlalu besar!');
+                </script>";
+                return false;
+    }
+    // lolos pengecekan, gambar siap di upload
+    // generate nama gambar baru
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
+
+    move_uploaded_file($tmpName, 'foto/' . $namaFileBaru);
+    return $namaFileBaru;
+
+
+
+
 }
 
 function hapus($id) {
@@ -43,8 +90,17 @@ function edit($data){
     $kode_capster = htmlspecialchars($data["kode_capster"]);
     $alamat = htmlspecialchars($data["alamat"]);
     $no_hp = htmlspecialchars($data["no_hp"]);
-    $foto = htmlspecialchars($data["foto"]);
     $jenis_kelamin = $data["jenis_kelamin"];
+    $fotoLama = htmlspecialchars($data["fotoLama"]);
+    // cek apakah user pilih foto baru atau tidak
+    if( $_FILES['foto']['error'] == 4 ) {
+        $foto = $fotoLama;
+    } else {
+        $foto = upload();
+        
+    }
+    
+    
 
     $query = "UPDATE capsters SET
                 nama_capster = '$nama_capster',

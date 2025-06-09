@@ -47,6 +47,7 @@ if( isset($_POST["submit"]) ) {
         <form action="" method="post" enctype="multipart/form-data" class="form-capster">
             <ul>
                 <input type="hidden" name="id" value="<?= $cps["id"]; ?>" >
+                <input type="hidden" name="fotoLama" value="<?= $cps["foto"]; ?>" >
                 <li>
                     <label for="nama_capster">Nama Capster</label>
                     <input type="text" name="nama_capster" id="nama_capster" required 
@@ -68,15 +69,19 @@ if( isset($_POST["submit"]) ) {
                     value="<?= $cps["no_hp"] ?>" class="input">
                 </li>
                 <li>
-                    <label for="foto">Foto (nama file)</label>
+                    <label for="foto">Foto</label>
+                    <img src="foto/<?= $cps['foto']; ?>" width="100px" height="100px"><br>
                     <input type="file" name="foto" id="foto" class="input">
                 </li>
                 <li>
                     <label for="jenis_kelamin">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" id="jenis_kelamin" required class="input">
+                    
+                    <select name="jenis_kelamin" id="jenis_kelamin" required class="input"><br>
+                        value="<?= $cps["jenis_kelamin"] ?> class="input">
                         <option value="">--Pilih--</option>
                         <option value="Laki-laki" <?= $cps["jenis_kelamin"] == "Laki-laki" ? "selected" : "" ?>>Laki-laki</option>
                         <option value="Perempuan" <?= $cps["jenis_kelamin"] == "Perempuan" ? "selected" : "" ?>>Perempuan</option>
+                        
                     </select>
                 </li>
                 <li>

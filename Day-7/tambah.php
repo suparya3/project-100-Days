@@ -2,6 +2,7 @@
 require 'koneksi.php';
 // cek apakah tombol submit sudah ditekan atau belum
 if( isset($_POST["submit"]) ) {
+
     // cek apakah data berhasil ditambahkan atau tidak
     if( tambah($_POST) > 0 ) {
         echo "
